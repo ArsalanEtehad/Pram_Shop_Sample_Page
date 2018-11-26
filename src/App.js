@@ -35,34 +35,39 @@ class App extends Component {
     }
     else{
       return (
-        <div className="App">
-          <ul>
-            {items.map((item)=>(
-              <div key={item.id}>
+        <main id="app">
+          <div class="main-content">
+            <article class="product-list">
 
-                <a href={item.links.external} id={item.id} data-id={item.id} data-togl-trigger="productpopup" data-togl-actioned="false">
-                  <div class="product_image">
-                    <img src={item.attributes.image_urls[0]} alt={item.attributes.friendly_id} title={item.attributes.title}/>
-                    <span class="product_image_promotion">
 
-                    </span>
-                  </div>
-                  <div class="product_content">
-                    <span class="product_content_brand">{item.attributes.brand_name}</span>
-                    <h2 class="product_content_name">{item.attributes.title}</h2>
-                    <span class="product_content_store">
-                      <span>from </span>
-                      {item.attributes.spider_name}
-                    </span>
-                    <span class="product_content_price price">${item.attributes.price}</span>
-                  </div>
-                </a>
+              {items.map((item)=>(
+                <div class="product" key={item.id}>
+                  <a href={item.links.external} id={item.id} data-id={item.id} data-togl-trigger="productpopup" data-togl-actioned="false">
+                    <div class="product_image">
+                      <img src={item.attributes.image_urls[0]} alt={item.attributes.friendly_id} title={item.attributes.title}/>
+                      <span class="product_image_promotion">
+                      </span>
+                    </div>
+                    <div class="product_content">
+                      <span class="product_content_brand">{item.attributes.brand_name}</span>
+                      <h2 class="product_content_name">{item.attributes.title}</h2>
+                      <span class="product_content_store">
+                        <span>from </span>
+                        {item.attributes.spider_name}
+                      </span>
+                      <span class="product_content_price price">${item.attributes.price}</span>
+                    </div>
+                  </a>
+                </div>
+              )
+            )}
 
-              </div>
-            )
-          )}
-          </ul>
-        </div>
+
+
+            </article>
+          </div>
+        </main>
+
       );
     }
   }
