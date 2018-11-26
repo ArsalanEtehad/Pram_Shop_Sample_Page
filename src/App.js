@@ -16,7 +16,7 @@ class App extends Component {
 
 
   componentDidMount(){
-    const url = 'https://api.myjson.com/bins/13egm6'
+    const url = 'http://localhost:3001/data'
     fetch(url) //just a free json host to use now
     .then(res=>res.json())
     .then((json)=>{
