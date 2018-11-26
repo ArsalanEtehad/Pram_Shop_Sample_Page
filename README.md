@@ -1,3 +1,9 @@
+![webpage snap shot](http://gdurl.com/crCN)
+
+
+Run `json-server --watch db.json --port 3001` first.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
