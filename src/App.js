@@ -21,6 +21,7 @@ class App extends Component {
     }
     return (
       <div>
+      
         <ProductGrid
           products={products}
         />
