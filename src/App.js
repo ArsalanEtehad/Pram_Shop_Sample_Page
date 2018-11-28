@@ -13,7 +13,7 @@ class App extends Component {
 
 
   render() {
-    const {products, isLoading} = this.props;
+    const {products} = this.props;
     if(products !== undefined){
       return (
         <main id="app">
