@@ -1,31 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux'
-import App from './App';
 import configureStore from './state/store';
 import * as serviceWorker from './serviceWorker';
-// import * as productApi from './libs/product/api';
-//
-// productApi.fetchAll().then((products)=>{
-//   console.log(products);
-// });
-
-// import {fetchProducts} from './state/product/actions';
+import Root from './components/Root'
 
 const store = configureStore({});
 
-// setTimeout(()=>{
-//   store.dispatch(fetchProducts());
-// },1000);
 
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-
+  <Root store={store} />,
   document.getElementById('root')
-
 );
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

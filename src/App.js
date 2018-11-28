@@ -21,7 +21,7 @@ class App extends Component {
     }
     return (
       <div>
-        <h1> URGE SHOP APPLICATION</h1>
+        <h1> Sample Pram Shop</h1>
         <ProductGrid
           products={products}
         />
