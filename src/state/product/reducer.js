@@ -3,6 +3,8 @@ import {FETCH_PRODUCTS, FETCH_PROCUCTS_SUCCESS, FETCH_PROCUCTS_FAILURE} from '..
 
 const initialState = {
   isLoading: false,
+  products:[],
+  error: null,
 
 }
 

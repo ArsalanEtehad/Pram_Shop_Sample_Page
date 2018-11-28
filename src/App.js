@@ -14,7 +14,6 @@ class App extends Component {
 
   render() {
     const {products} = this.props;
-    if(products !== undefined){
       return (
         <main id="app">
           <div class="main-content">
@@ -50,10 +49,6 @@ class App extends Component {
         </main>
 
       );
-
-
-    }else{
-      return <div>is Loading... </div>;    }
   }
 }
 
