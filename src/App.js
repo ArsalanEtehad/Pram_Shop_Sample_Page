@@ -1,46 +1,27 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {fetchProducts} from './state/product/actions';
 import './App.css';
 
+
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      items:[],
-      isLoaded: false,
-    }
-  }
-  addDefaultSrc(ev){
-    // ev.target.src = 'https://www.interserver.net/tips/wp-content/uploads/2016/10/404error.jpeg'
-    ev.target.src = 'https://cdn.dribbble.com/users/932640/screenshots/2470471/jq.gif'
+  componentWillMount(){
+    setTimeout(()=>{
+      this.props.fetchProducts();
+    },1000);
   }
 
-
-  componentDidMount(){
-    const url = 'http://localhost:3001/data'
-    fetch(url) //just a free json host to use now
-    .then(res=>res.json())
-    .then((json)=>{
-      this.setState({
-        isLoaded:true,
-        items: json,
-      })
-
-    });
-  }
 
   render() {
-    var {items, isLoaded} = this.state;
-    if(!isLoaded){
-      return <div>is Loading... </div>;
-    }
-    else{
+    const {products, isLoading} = this.props;
+    if(products !== undefined){
       return (
         <main id="app">
           <div class="main-content">
             <article class="product-list">
 
 
-              {items.map((item)=>(
+              {products.map((item)=>(
                 <div class="product" key={item.id}>
                   <a href={item.links.external} id={item.id} data-id={item.id} data-togl-trigger="productpopup" data-togl-actioned="false">
                     <div class="product_image">
@@ -69,8 +50,21 @@ class App extends Component {
         </main>
 
       );
-    }
+
+
+    }else{
+      return <div>is Loading... </div>;    }
   }
 }
 
-export default App;
+const mapStateToProps = (state)=>({
+  products: state.product.products,
+  isLoading: state.product.isLoading,
+
+});
+
+const mapDispatchToProps = {
+  fetchProducts,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
