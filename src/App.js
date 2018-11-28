@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {fetchProducts} from './state/product/actions';
 import ProductGrid from './components/ProductGrid/index'
 // import './App.css';
+import { BrowserRouter as Router} from 'react-router-dom'
+
 
 
 class App extends Component {
@@ -21,10 +23,12 @@ class App extends Component {
     }
     return (
       <div>
-      
-        <ProductGrid
-          products={products}
-        />
+      <Router>
+          <ProductGrid
+            products={products}
+          />
+
+      </Router>
       </div>
     );
   }
