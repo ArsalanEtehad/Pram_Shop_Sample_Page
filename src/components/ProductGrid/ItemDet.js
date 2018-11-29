@@ -9,6 +9,7 @@ class Item extends Component{
     var item_id = pathname.substring(1);
     var the_item = null;
     
+    // eslint-disable-next-line
     {products.map(item=>{
       if(item.attributes.friendly_id === item_id){
         the_item = item;
