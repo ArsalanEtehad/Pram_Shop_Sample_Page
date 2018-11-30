@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {fetchProducts} from './state/product/actions';
 import ProductGrid from './components/ProductGrid/index'
-// import './App.css';
 import { BrowserRouter as Router} from 'react-router-dom'
-
-
 
 class App extends Component {
   componentWillMount(){
@@ -13,7 +10,6 @@ class App extends Component {
       this.props.fetchProducts();
     },1000);
   }
-
 
   render() {
     const {products, isLoading} = this.props;
@@ -23,11 +19,9 @@ class App extends Component {
     }
     return (
       <div>
-      <Router>
-          <ProductGrid
-            products={products}
-          />
-      </Router>
+        <Router>
+            <ProductGrid products={products}/>
+        </Router>
       </div>
     );
   }

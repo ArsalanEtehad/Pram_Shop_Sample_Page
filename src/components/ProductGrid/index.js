@@ -1,28 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Route, NavLink} from 'react-router-dom'
+import { Route, Link} from 'react-router-dom'
 import ItemDet from './ItemDet'
 
 
 
 const ProductGrid = ({products})=>(
     <div>
-      <h1><NavLink to="/">Pram Shop (sample)</NavLink></h1>
+
+      <HeaderBar>
+        <Link to="/">
+          <TitleHeader>
+            Pram Shop (sample)
+          </TitleHeader>
+        </Link>
+      </HeaderBar>
+
       <Wrapper>
         {products.map(item=>(
           <ProductWrapper key={item.id}>
-          
-            <NavLink to={item.attributes.friendly_id} >
+            <Link to={item.attributes.friendly_id}>
               <CropImage>
                 <ProductImage
                   src={item.attributes.image_urls[0]}
                   title={item.attributes.friendly_id}
                 />
               </CropImage>
-            </NavLink>
-
+            </Link>
             <Route path = {`/${item.attributes.friendly_id}`} component={ItemDet}/>
+
             <ProductContent>
               <ProductContentBrand>{item.attributes.brand_name}</ProductContentBrand>
               <ProductName>
@@ -70,6 +77,31 @@ ProductGrid.propTypes={
 }
 
 
+const HeaderBar = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
+`;
+
+const TitleHeader = styled.a`
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #ddd;
+    color: black;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -86,12 +118,19 @@ const Wrapper = styled.div`
 const ProductWrapper = styled.div`
   flex-basis: 24%;
   margin-bottom: 20px;
+
 `;
 
 const CropImage = styled.div`
   height: 400px;
   width: 300px;
   overflow: hidden;
+
+  &:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
 `;
 
 const ProductImage = styled.img`
@@ -145,10 +184,7 @@ const ProductContentPrice = styled.div`
   font-size: .9rem;
   display: inline-block;
   padding: 0 3px;
-
 `;
-
-
 
 
 export default ProductGrid;
