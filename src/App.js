@@ -27,7 +27,6 @@ class App extends Component {
           <ProductGrid
             products={products}
           />
-
       </Router>
       </div>
     );
