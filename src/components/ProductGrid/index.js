@@ -8,15 +8,20 @@ import ItemDet from './ItemDet'
 
 const ProductGrid = ({products})=>(
     <div>
-      <h1><NavLink to="/">Sample Pram Shop</NavLink></h1>
+      <h1><NavLink to="/">Pram Shop (sample)</NavLink></h1>
       <Wrapper>
         {products.map(item=>(
           <ProductWrapper key={item.id}>
+          
             <NavLink to={item.attributes.friendly_id} >
-              <ProductImage
-                src={item.attributes.image_urls[0]}
-              />
+              <CropImage>
+                <ProductImage
+                  src={item.attributes.image_urls[0]}
+                  title={item.attributes.friendly_id}
+                />
+              </CropImage>
             </NavLink>
+
             <Route path = {`/${item.attributes.friendly_id}`} component={ItemDet}/>
             <ProductContent>
               <ProductContentBrand>{item.attributes.brand_name}</ProductContentBrand>
@@ -83,13 +88,21 @@ const ProductWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
+const CropImage = styled.div`
+  height: 400px;
+  width: 300px;
+  overflow: hidden;
+`;
+
 const ProductImage = styled.img`
-  width:100%;
+  height: auto;
+  width: 300px;
   position: relative;
   overflow: hidden;
   background-color: #f5f5f5;
-
+  vertical-align: middle;
 `;
+
 
 const ProductName = styled.div`
   margin: 10px 0;
