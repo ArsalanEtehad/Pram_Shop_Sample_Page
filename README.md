@@ -1,7 +1,9 @@
-![webpage snap shot](http://gdurl.com/crCN)
 
+1) npm install -g json-server  [https://github.com/typicode/json-server]
 
-Run `json-server --watch db.json --port 3001` first.
+2) Run `json-server --watch db.json --port 3001` first.
+
+3) npm start
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -48,3 +50,6 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+![webpage snap shot](http://gdurl.com/crCN)
